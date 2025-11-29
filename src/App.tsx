@@ -1,11 +1,8 @@
 import "./App.scss";
+import { MainRouter } from "./router/appRouter";
 
 function App() {
-  return (
-    <>
-      <div>LENDSQR FE ASSESSMENT - AWOYEMI ABIOLA</div>
-    </>
-  );
+  return <MainRouter />;
 }
 
 export default App;
