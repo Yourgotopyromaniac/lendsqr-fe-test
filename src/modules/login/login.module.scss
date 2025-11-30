@@ -1,9 +1,20 @@
 @use "../../styles/mixins" as m;
+@use "../../styles/variables" as v;
 
 .container {
   @include m.flex-row;
   width: 100%;
   height: 100vh;
+}
+
+.baseFlexRow {
+  @include m.flex-row($justify: center, $align: center, $gap: 8px);
+  width: 100%;
+}
+
+.baseFlexCol {
+  @include m.flex-column($justify: center, $gap: 8px);
+  width: 100%;
 }
 
 .imageContainer {
@@ -18,4 +29,148 @@
   position: absolute;
   top: 10%;
   left: 8%;
+}
+
+.formContainer {
+  @include m.flex-column($align: center, $justify: center);
+  background-color: white;
+  width: 50%;
+  height: 100%;
+  box-shadow: 0px 15px 90px 0px #00000008;
+  border: 2px #545f7d26;
+}
+
+.formHeader {
+  color: v.$dark-blue;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 20px;
+}
+
+.formText {
+  color: v.$primary;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 10px;
+}
+
+.formContent {
+  @include m.flex-column($justify: center, $gap: 60px);
+  width: 100%;
+  max-width: 447px;
+  padding: 0 40px;
+}
+
+.formWrapper {
+  @include m.flex-column($justify: center, $gap: 24px);
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 16px 0px 16px 20px;
+  font-size: 14px;
+  box-sizing: border-box;
+  border: 2px solid #d4d4d4;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.2s ease;
+  background: white;
+  color: #545f7d;
+}
+
+.input::placeholder {
+  color: #c4c4c4;
+}
+
+.input:focus {
+  border-color: #39cdcc;
+  box-shadow: 0 0 0 3px rgba(57, 205, 204, 0.1);
+}
+
+.input:hover:not(:focus) {
+  border-color: #b8b8b8;
+}
+
+.inputError {
+  border-color: #e4033b !important;
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 3px rgba(228, 3, 59, 0.1) !important;
+}
+
+.passwordWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.showButton {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: v.$light-blue;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.showButton:hover {
+  opacity: 0.8;
+}
+
+.showButton:active {
+  opacity: 0.6;
+}
+
+.errorText {
+  color: #e4033b;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+.forgotPassword {
+  color: v.$light-blue;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  align-self: flex-start;
+  margin-top: -8px;
+  transition: opacity 0.2s ease;
+}
+
+.forgotPassword:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.inputFlexCol {
+  @include m.flex-column($justify: center, $gap: 2px);
+  width: 100%;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 16px;
+  background: v.$light-blue;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 16px;
+}
+
+.submitButton:hover {
+  background: #2ab8b7;
 }
